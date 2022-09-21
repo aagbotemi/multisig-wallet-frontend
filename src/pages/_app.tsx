@@ -18,7 +18,7 @@ import { WalletConnectConnector } from 'wagmi/connectors/walletConnect';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { StoreProvider } from "../components/stateManager/store";
-
+import { Fragment } from 'react';
 
 const { chains, provider, webSocketProvider } = configureChains([chain.polygonMumbai, chain.polygon],   [
   jsonRpcProvider({
@@ -59,7 +59,7 @@ const client = createClient({
 
 function MyApp({ Component, pageProps }: AppProps) {
   return(
-    <ThemeProvider>
+    <Fragment>
       <WagmiConfig client={client}>
         <StoreProvider>
           <Component {...pageProps} />
@@ -80,7 +80,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
       <div id="app-bottom-sheet" />
       <div id="app-modal-root" />
-    </ThemeProvider>
+    </Fragment>
   )
   
  
